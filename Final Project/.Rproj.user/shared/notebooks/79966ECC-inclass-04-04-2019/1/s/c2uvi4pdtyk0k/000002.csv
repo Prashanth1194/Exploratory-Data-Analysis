@@ -1,0 +1,2 @@
+"0","alligator = read.table(""alligator.txt"", header = TRUE)"
+"0","head(alligator)"

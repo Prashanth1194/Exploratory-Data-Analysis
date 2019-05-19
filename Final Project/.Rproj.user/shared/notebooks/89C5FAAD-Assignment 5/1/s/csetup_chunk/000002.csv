@@ -1,0 +1,29 @@
+"0","knitr::opts_chunk$set(echo = TRUE)"
+"0","library(tidyverse)"
+"0","library(lattice)"
+"0","library(NHANES)"
+"0","library(GGally)"
+"0","library(ggplot2)"
+"0","library(viridis)"
+"0","library(mgcv)"
+"2","package ‘mgcv’ was built under R version 3.4.4"
+"2","Loading required package: nlme
+"
+"2","
+Attaching package: ‘nlme’
+
+"
+"2","The following object is masked from ‘package:lme4’:
+
+    lmList
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    collapse
+
+"
+"2","This is mgcv 1.8-24. For overview type 'help(""mgcv-package"")'.
+"
+"0","library(MASS)"
+"0","cb_palette = c(""#999999"", ""#E69F00"", ""#56B4E9"", ""#009E73"", ""#F0E442"", ""#0072B2"", ""#D55E00"", ""#CC79A7"")"

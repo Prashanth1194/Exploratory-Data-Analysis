@@ -1,0 +1,2 @@
+"0",""
+"0","grid.arrange(r1,r2,r3,r4,ncol=2,top = ""Average Medical Charges by BMI and Age Categories"", left = 'Log 10 of Medical Charges')"

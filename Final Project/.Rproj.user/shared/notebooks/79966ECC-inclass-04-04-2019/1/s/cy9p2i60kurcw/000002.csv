@@ -1,0 +1,1 @@
+"0","ggplot(alligator, aes(x = food, y = count, fill = lake)) + geom_bar(stat = ""identity"") + scale_fill_manual(values = cb_palette)"

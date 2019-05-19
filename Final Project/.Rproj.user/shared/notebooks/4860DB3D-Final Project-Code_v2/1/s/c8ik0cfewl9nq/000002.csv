@@ -1,0 +1,2 @@
+"0","gg = ggplot(insurance, aes(x = age,y = log, color = factor(bmi_cat))) + geom_point() +facet_grid(~smoker) + scale_color_manual(name=""BMI"",values=cb_palette)"
+"0","gg + labs(title = ""Age vs Medical Charges"",x=""Age"",y=""Medical Charges"",subtitle=""Faceted by Smoking habit"") "
