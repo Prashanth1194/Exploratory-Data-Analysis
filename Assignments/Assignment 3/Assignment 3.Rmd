@@ -1,0 +1,193 @@
+---
+title: "STAT-670-Assignment 3"
+author: 'Prashanth Thirukkurungudi Sekar (UID: 2000376633)'
+date: "January 30, 2019"
+output: html_document
+---
+Worked with Pravin Sundar and Barathwaaj Parthasarathy \
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Introduction
+It is know that High systolic blood pressure is a strong predictor of heart attacks and strokes. In this analysis, we attempt to verify if a person's age, weight and height changes with average systolic blood pressure. Eventually, we report if the variation between blood pressure and the above mentioned factors vary between male and female to conclude more insights. \
+NHANES data is used for this experiment and with the help of some plots suitable conclusions are drawn.
+
+
+Loading the libraries:
+
+```{r results='hide', message=FALSE, warning=FALSE}
+library(readr)
+library(tidyverse)
+library(ggplot2)
+library(lattice)
+library(NHANES)
+library(broom)
+library(gridExtra)
+library(arm)
+```
+
+Loading the data with the required columns:
+
+```{r message=FALSE}
+req_cols = c("Age","Weight","Height","Gender","BPSysAve")
+nhanes = NHANES[,req_cols]
+nhanes = nhanes[complete.cases(nhanes),]
+```
+
+
+Splitting the data for Male and Female:
+
+```{r message=FALSE}
+male =  nhanes[nhanes$Gender=="male",]
+female =  nhanes[nhanes$Gender=="female",]
+```
+
+
+Summarising Male and Female data:
+
+```{r message=FALSE}
+summary(male)
+summary(female)
+```
+
+## Age:
+
+Trend:
+
+```{r}
+cb_palette = c("#CC0033", "#3300CC")
+ggplot(nhanes, aes(x = Age, y = BPSysAve, color = Gender)) + geom_point(alpha = 0.3)+ scale_color_manual(values = cb_palette) + geom_smooth(method=loess) + labs(x="Age",y="Average of three measurements of systolic blood pressure") + ggtitle("Average Systolic Blood Pressure v/s Age")
+```
+
+
+Building model:
+
+```{r warning=FALSE,message=FALSE}
+age_male.lm = loess(BPSysAve~Age, data = male,method.args =list(degree=1),span=.8)
+age_male.lm.df = augment(age_male.lm)
+hat <- predict(age_male.lm)
+r_sq_loess_male <- cor(male$BPSysAve, hat)^2
+print("The R Squared value for the loess model for male:")
+round(r_sq_loess_male,2)
+age_female.lm = loess(BPSysAve~Age, data = female,method.args =list(degree=1))
+age_female.lm.df = augment(age_female.lm)
+hat <- predict(age_female.lm)
+r_sq_loess_female <- cor(female$BPSysAve, hat)^2
+print("The R Squared value for the loess model for female:")
+round(r_sq_loess_female,2)
+```
+
+
+Plot residuals to check the model:
+
+```{r warning=FALSE}
+age_male_resid = ggplot(age_male.lm.df, aes(x = Age, y = .resid)) + geom_point(alpha=0.3)+ geom_smooth(method=loess) + ggtitle("Male") + labs(y="Residuals")
+age_female_resid = ggplot(age_female.lm.df, aes(x = Age, y = .resid)) + geom_point(alpha=0.3)  + geom_smooth(method=loess) + ggtitle("Female") + labs(y="Residuals")
+```
+
+```{r warning=FALSE}
+grid.arrange(age_female_resid, age_male_resid, top = "Residual of the Model v/s Age",ncol = 2)
+```
+
+### Description :
+
+From the trend plot it can be observed that the average systolic blood pressure increases with age and this trend seems to hold good for both male and female. Also, it can be observed that there is not any evident/ significant difference in the distribution of age v/s systolic blood pressure with respect to gender. Also, since 80 and older age groups have been coded as 80, it can be observed that a variety of values are present for the age group 80.Given the slight upward bump in the distirubtion for male, a "loess" model (non-parametric smoother) was selected to fit the data since it captures more variance present in the data. Also, since the data already looks fairly linear (for both male and female), no transformation on the age variable was warranted for this model. Looking at the residual plot, it is evident that the error terms have a constant variance and no evident pattern is found. Hence we can conclude that there is no presence of heteroskedasticity in this case. Finally, we can conclude that for male and female the trend with respect to age and average systolic blood pressure is positive and it can be seen that the observations are fairly close to the trend however, with the models explaining only 23% of the variance for male and 36% of the variance for females suggesting that the variations/trend is not strictly linear in nature. \
+\
+\
+\
+\
+\
+\
+\
+\
+
+
+## Height:
+
+Trend:
+
+
+```{r}
+cb_palette = c("#CC0033", "#3300CC")
+ggplot(nhanes, aes(x = Height, y = BPSysAve, color = Gender)) + geom_point(alpha = 0.3)+ scale_color_manual(values = cb_palette) + geom_smooth(method=lm)+ labs(x="Height",y="Average of three measurements of systolic blood pressure") + ggtitle("Average Systolic Blood Pressure v/s Height")
+```
+
+
+
+Buidling model :
+
+```{r}
+height_male.lm = lm((BPSysAve)~(Height), data = male)
+height_male.lm.df = augment(height_male.lm)
+display((height_male.lm))
+
+height_female.lm = lm((BPSysAve)~(Height), data = female)
+height_female.lm.df = augment(height_female.lm)
+display((height_female.lm))
+```
+
+Residual Plot:
+
+```{r warning=FALSE}
+height_male_resid = ggplot(height_male.lm.df, aes(x =Height, y = .resid)) + geom_point(alpha=0.3)+ geom_smooth(method="lm") + ggtitle("Male") + labs(y="Residuals")
+height_female_resid = ggplot(height_female.lm.df, aes(x = Height, y = .resid)) + geom_point(alpha=0.3)  + geom_smooth(method="lm") + ggtitle("Female") +labs(y="Residuals")
+```
+
+```{r warning=FALSE}
+grid.arrange(height_female_resid, height_male_resid, top = "Residual of the Model v/s Height",ncol = 2)
+```
+
+
+### Description :
+
+For male, the average systolic blood pressure tends to increases with height while for female, it almost tends to remain cosntant throughout and this can be confirmed through the very small coefficient value obtained through the model (0.02) female while the model for male having a positive coefficient of 0.38. Also, for female most of the points remains highly concentrated within the range of 150 to 175. Looking at the trend plot, it is evident that male and female have 2 different pattern or trend for systolic blood pressure with height. Also, the mean heights differ with the mean female height being 161 cm and the mean male height being 173 cm. Given the fairly linear nature present in the trend plot, a standard linear model (lm) was chosen. Also, since the data already looks fairly linear (for both male and female), no transformation on the height variable was warranted for this model. Looking at the residual plot, it is evident that the error terms have a constant variance and no evident pattern is found. Hence we can conclude that there is no presence of heteroskedasticity in this case. Finally, we can conclude that for male there is a slight increasing trend of average systolic blood pressure with height while for female it tends to remain a constant and it can be seen that the observations are not very close to the trend given the large number of outlier observations and this is supported by the models explaining only 7% of the variance for male and 0% of the variance for females (no trend - constant trend).
+
+
+## Weight:
+
+Trend:
+
+```{r}
+cb_palette = c("#CC0033", "#3300CC")
+ggplot(nhanes, aes(x = log10(Weight), y = BPSysAve, color = Gender)) + geom_point(alpha = 0.3)+ scale_color_manual(values = cb_palette) + geom_smooth(method=lm) + labs(x="Log Weight",y="Average of three measurements of systolic blood pressure") + ggtitle("Average Systolic Blood Pressure v/s Weight")
+```
+
+
+Buidling model :
+
+```{r}
+male$Weight = log(male$Weight)
+female$Weight = log(female$Weight)
+
+weight_male.lm = lm((BPSysAve)~(Weight), data = male)
+weight_male.lm.df = augment(weight_male.lm)
+display(weight_male.lm)
+
+weight_female.lm = lm((BPSysAve)~(Weight), data = female)
+weight_female.lm.df = augment(weight_female.lm)
+display(weight_female.lm)
+```
+
+Residual Plot:
+
+```{r warning=FALSE}
+weight_male_resid = ggplot(weight_male.lm.df, aes(x = Weight, y = .resid)) + labs(x="Log Weight",y="Residuals") + geom_point(alpha=0.3)+ geom_smooth(method=lm) + ggtitle("Male") 
+weight_female_resid = ggplot(weight_female.lm.df, aes(x = Weight, y = .resid)) + labs(x="Log Weight",y="Residuals") + geom_point(alpha=0.3)  + geom_smooth(method=lm) + ggtitle("Female")
+```
+
+```{r warning=FALSE}
+grid.arrange(weight_female_resid, weight_male_resid, top = "Residual of the Model v/s Logged Weight",ncol = 2)
+```
+
+### Description :
+
+For male and female, the average systolic blood pressure tends to increases with weight and this can be confirmed through the positive coefficient values from the respective models. With almost similar mean weights for both male and female, looking at the trend plot, it is evident that male and female almost have the same pattern. Given the fairly linear nature present in the trend plot, a standard linear model (lm) was chosen. In order to fit a linear model, logged transformation of the weight variable seemed appropriate. Looking at the residual plot, it is evident that the error terms have a constant variance and no evident pattern is found. Hence we can conclude that there is no presence of heteroskedasticity in this case. Finally, we can conclude that for both male and female there is an increasing trend of average systolic blood pressure with respect to weight and it can be seen that the observations are not very close to the trend given the large number of outlier observations and this is supported by the models explaining only 11% of the variance for male and 7% of the variance for females.
+
+
+### Conclusion :
+After the above analysis, we can conclude that for males, the average systolic blood pressure has a strictly positive variation/ trend with age, height and weight. While for females, the average systolic blood pressure varies with the age and weight and there is no change or constant trend with increase in height.
+
+ 
