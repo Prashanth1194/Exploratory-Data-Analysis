@@ -1,1 +1,0 @@
-"0","ggplot(alligator, aes(x = food, y = count, color = sex)) + geom_point() + facet_wrap(~size + lake, ncol = 4, labeller = label_context) + theme(axis.text=element_text(size=7)) + scale_color_manual(values = cb_palette)"

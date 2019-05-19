@@ -1,1 +1,0 @@
-"0","ggplot(insurance1.loess.df,aes(y=.resid,x=.fitted)) + geom_point()+ geom_smooth(method=""loess"")+geom_abline(slope = 0, intercept = 0) + labs(title = ""Fitted vs Residuals"", x = ""Fitted values"", y = ""Residual values"")"

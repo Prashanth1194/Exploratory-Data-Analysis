@@ -1,1 +1,0 @@
-"0","bmi.lo = loess(log10(BMI) ~ Height + Age , degree = 1,span=0.5, data = df)"

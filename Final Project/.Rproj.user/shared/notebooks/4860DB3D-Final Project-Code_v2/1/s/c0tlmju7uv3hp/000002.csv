@@ -1,1 +1,0 @@
-"0","insurance2.gam.df = data.frame(insurance, .fitted = fitted.values(insurance2.gam), .resid = residuals(insurance2.gam))"

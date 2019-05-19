@@ -1,6 +1,0 @@
-"0","ss =insurance %>% group_by(bmi_cat) %>% summarise(Mean = mean(charges))"
-"0",""
-"0","gg4 = ggplot(ss,aes(x=reorder(bmi_cat, Mean, sum),y=Mean)) + geom_bar(stat = ""identity"", position = 'dodge',fill= ""#1C2833"") +  labs(x=""BMI Categories"",y="""") + theme(axis.text.x = element_text(angle = 45, hjust = 1))"
-"0",""
-"0","grid.arrange(gg3,gg4,ncol=2,top = ""Average Medical Charges by BMI and Age Categories"", left = 'Log 10 of Medical Charges')"
-"0",""

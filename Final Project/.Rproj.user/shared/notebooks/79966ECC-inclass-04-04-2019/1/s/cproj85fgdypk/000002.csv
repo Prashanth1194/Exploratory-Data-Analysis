@@ -1,2 +1,0 @@
-"0","alligator.wide = alligator %>% spread(food, count)"
-"0","alligator.wide"

@@ -1,2 +1,0 @@
-"0","gg = ggplot(alligator, aes(x = food, y = count)) + geom_bar(stat = ""identity"") + facet_wrap(~size + lake, ncol = 4, labeller = label_context)"
-"0","gg + theme(axis.text=element_text(size=8))"

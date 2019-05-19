@@ -1,3 +1,0 @@
-"0","tt =insurance %>% group_by(age_cat) %>% summarise(Mean = mean(charges))"
-"0","gg3 = ggplot(tt,aes(x=reorder(age_cat, Mean, sum),y=Mean)) + geom_bar(stat = ""identity"", position = 'dodge',fill= ""#1C2833"") +  labs(x=""Age Categories"",y="""") + theme(axis.text.x = element_text(angle = 45, hjust = 1))"
-"0",""

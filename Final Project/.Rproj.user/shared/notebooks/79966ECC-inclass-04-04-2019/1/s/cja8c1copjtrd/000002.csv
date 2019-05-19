@@ -1,1 +1,0 @@
-"0","ggplot(alligator, aes(x = food, y = count)) + geom_bar(stat = ""identity"")"

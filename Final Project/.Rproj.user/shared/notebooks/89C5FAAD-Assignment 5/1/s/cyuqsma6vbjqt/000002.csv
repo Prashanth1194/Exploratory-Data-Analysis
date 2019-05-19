@@ -1,2 +1,0 @@
-"0","cols_req = c(""BMI"",""Age"",""Height"")"
-"0","df = NHANES[,cols_req]"

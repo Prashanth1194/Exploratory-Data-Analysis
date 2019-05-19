@@ -1,8 +1,0 @@
-"0","newdata1 = expand.grid(Height = seq(84, 200, 5),Age = seq(4,17,1)) #Age = c(4,17,40,60,80))"
-"0","newdata2 = expand.grid(Height = seq(135, 200, 5),Age = seq(18,80,1)) #Age = c(4,17,40,60,80))"
-"0",""
-"0","bmi.pred1 = predict(bmi.lo,newdata1)"
-"0","bmi.pred2 = predict(bmi.lo,newdata2)"
-"0","bmi.pred1 = data.frame(newdata1, fit = as.vector(bmi.pred1))"
-"0","bmi.pred2 = data.frame(newdata2, fit = as.vector(bmi.pred2))"
-"0","bmi.pred3 = rbind(bmi.pred1,bmi.pred2)"

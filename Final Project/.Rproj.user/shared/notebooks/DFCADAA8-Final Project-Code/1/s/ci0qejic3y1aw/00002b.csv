@@ -1,2 +1,0 @@
-"0","ggplot(insurance, aes(x = sex, y = smoker, z = log)) + geom_raster(aes(fill = log)) +"
-"0","coord_fixed() + labs(subtitle=""Gender v/s Smoking Habits"",x=""Gender"",y=""Smoking Habit"") +scale_fill_continuous(name = ""Log of Medical Charges"")"

@@ -1,5 +1,0 @@
-"0",""
-"0","insurance$age_cat = ifelse(insurance$age>=18 & insurance$age<=35, ""Young"",ifelse(insurance$age>=36 & insurance$age<=55,""Senior"",""Elder""))"
-"0",""
-"0","insurance$bmi_cat = ifelse(insurance$bmi<18.5, ""Under Weight"", ifelse(insurance$bmi>=18.5 & insurance$bmi<24.9,""Normal Weight"",ifelse(insurance$bmi>=25 & insurance$bmi<29.9,""Overweight"",""Obese"")))"
-"0",""

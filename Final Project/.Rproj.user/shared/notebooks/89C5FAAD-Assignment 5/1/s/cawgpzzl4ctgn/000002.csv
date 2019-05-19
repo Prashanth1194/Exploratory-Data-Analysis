@@ -1,3 +1,0 @@
-"0","df = df[complete.cases(df),]"
-"0","df = data.frame(df)"
-"0","df$Age = as.numeric(df$Age)"

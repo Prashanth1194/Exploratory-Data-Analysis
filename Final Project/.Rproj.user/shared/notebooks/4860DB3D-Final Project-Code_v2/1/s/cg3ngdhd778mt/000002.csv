@@ -1,2 +1,0 @@
-"0","ggplot(insurance, aes(x = bmi_cat, y = age_cat, z = log)) + geom_raster(aes(fill = log)) +"
-"0","coord_fixed()   + labs(subtitle=""Female:Non-Smoker"",x="""",y="""") +  theme(plot.title = element_text(hjust = 0.5), axis.title.x=element_blank(), axis.title.y=element_blank(), text = element_text(size=11))"
