@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1556071811294.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "1314479909",
+    "id" : "25C5CF5F",
+    "lastKnownWriteTime" : 1556497187,
+    "last_content_update" : 1556497187275,
+    "path" : "F:/Indiana University/Spring 2019/EDA/Final Project/Final Project-Code_v2.Rmd",
+    "project_path" : "Final Project-Code_v2.Rmd",
+    "properties" : {
+        "cursorPosition" : "345,30",
+        "last_setup_crc32" : "",
+        "scrollLine" : "342"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

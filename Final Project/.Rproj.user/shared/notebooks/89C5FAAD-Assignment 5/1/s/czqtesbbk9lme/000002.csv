@@ -1,0 +1,5 @@
+"0","print(var(fitted.values(bmi.lo))/(var(fitted.values(bmi.lo)) + var(residuals(bmi.lo))))"
+"1","[1]"
+"1"," 0.3834421"
+"1","
+"

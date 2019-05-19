@@ -1,0 +1,5 @@
+"0","newdata1 = expand.grid(Height = seq(84,194, 1), Age = seq(2,18,1))#Age = c(4,17,40,60,80))"
+"0","bmi.pred1 = predict(bmi.lo, newdata = newdata1)"
+"0","bmi.pred1 = data.frame(newdata1, predicted_log10_bmi = as.vector(bmi.pred1))"
+"0","legend_title <- ""Fitted Average BMI Values (Log)"""
+"0","ggplot(bmi.pred1, aes(x = Height, y = Age, z = predicted_log10_bmi)) + geom_raster(aes(fill = predicted_log10_bmi)) +coord_fixed() +  scale_fill_distiller(legend_title,palette = ""RdYlBu"") + geom_contour() +  labs(title=""Raster and Contour Plot"",x=""Height"",y=""Age"")"

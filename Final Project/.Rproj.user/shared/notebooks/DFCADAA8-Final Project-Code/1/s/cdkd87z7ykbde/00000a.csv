@@ -1,0 +1,2 @@
+"0","gg = ggplot(insurance, aes(x=sex,y = log,color=factor(smoker))) + geom_point() +facet_grid(~smoker) + scale_color_manual(name=""Smoking Habits"",values=cb_palette)"
+"0","gg + labs(title = ""Gender vs Medical Charges"",x=""Gender"",y=""Medical Charges"",subtitle=""Colored by Smoking Habits"") "

@@ -1,0 +1,4 @@
+"0","rr_a = ggarrange(r1, r3, r2, r4,common.legend=T,legend=""right"",ncol = 2,nrow=2)"
+"0",""
+"0",""
+"0","ggpubr::annotate_figure(rr_a,top=""Fitted Values (Logged) v/s BMI and Age Categories"",left=""Age Categories"",bottom=""BMI Categories"")"

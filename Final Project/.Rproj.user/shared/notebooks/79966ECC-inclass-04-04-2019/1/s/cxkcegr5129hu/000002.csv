@@ -1,0 +1,1 @@
+"0","ggplot(alligator) + geom_mosaic(aes(product(food, size), weight = count, fill = food)) + facet_wrap(~lake, ncol=2, labeller = label_context) + xlab(""Alligator size"") + scale_fill_manual(values = cb_palette)"

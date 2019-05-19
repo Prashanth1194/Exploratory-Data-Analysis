@@ -1,0 +1,8 @@
+"0","neworder <- c(""Under Weight"",""Normal Weight"",""Overweight"",""Obese"")"
+"0",""
+"0","d1 <- arrange(mutate(insurance1.loess.df,"
+"0","             bmi_cat=factor(bmi_cat,levels=neworder)),bmi_cat)"
+"0",""
+"0","gg = ggplot(d1, aes(x=age,y = .fitted,color=factor(smoke_sex))) + geom_point() +facet_grid(~bmi_cat) + scale_color_manual(name="""",values=cb_palette2)"
+"0","gg + labs(title = ""AGE vs Fitted Values"",x=""Age"",y=""Fitted Values"",subtitle=""Colored by Gender and Smoking habit"") "
+"0",""

@@ -1,0 +1,1 @@
+"0","ggplot(alligator) + geom_mosaic(aes(product(food, lake), weight = count, fill = food)) + xlab(""Lake"") + ylab(""Proportion of gators at that lake"") + scale_fill_manual(values = cb_palette)"

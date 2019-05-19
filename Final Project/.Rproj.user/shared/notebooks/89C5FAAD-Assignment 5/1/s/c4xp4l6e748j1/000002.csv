@@ -1,0 +1,8 @@
+"0","bmi.pred6$Age_Group = ifelse(bmi.pred6$Age<=5, ""5 and below"",ifelse(bmi.pred6$Age>5 & bmi.pred6$Age<=8, ""6-8"",ifelse(bmi.pred6$Age>8 & bmi.pred6$Age<=11,""9-11"",ifelse(bmi.pred6$Age>11 & bmi.pred6$Age<14,""12-14"",""15-17""))))"
+"0",""
+"0","neworder <- c(""5 and below"",""6-8"",""9-11"",""12-14"",""15-17"")"
+"0","bmi.pred6 <- arrange(mutate(bmi.pred6,"
+"0","             Age_Group=factor(Age_Group,levels=neworder)),Age_Group)"
+"0",""
+"0","legend_title <- ""Age Categories"""
+"0","ggplot(bmi.pred6, aes(x = Height, y = fit, group = Age_Group, color = factor(Age_Group))) + geom_smooth(method=""loess"",se=F,method.args = list(degree = 1)) + scale_color_manual(legend_title,values = cb_palette)+ labs(title = ""Predicted BMI (Log) v/s Height"",x=""Height"",y=""Fitted Values"")"

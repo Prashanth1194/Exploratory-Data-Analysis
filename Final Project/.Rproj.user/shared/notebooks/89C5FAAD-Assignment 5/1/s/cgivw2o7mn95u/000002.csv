@@ -1,0 +1,3 @@
+"0","gg = ggplot(bmi.pred3, aes(x = Height,"
+"0","y = fit)) + geom_smooth(method=""loess"",se=F,method.args = list(degree = 1)) + facet_grid(~cut(Age, c(0,17,80)))"
+"0","gg + labs(title = ""Predicted BMI (Log) v/s Height"",x=""Height"",y=""Fitted Values"",subtitle=""Cut by Age"")"

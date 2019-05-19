@@ -1,0 +1,1 @@
+"0","ggplot(alligator) + geom_mosaic(aes(product(food, size), weight = count, fill = food)) + xlab(""Alligator size"") + scale_fill_manual(values = cb_palette)"

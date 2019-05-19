@@ -1,0 +1,5 @@
+"0","print(var(fitted.values(fit_loess))/(var(fitted.values(fit_loess)) + var(residuals(fit_loess))))"
+"1","[1]"
+"1"," 0.8139305"
+"1","
+"

@@ -1,0 +1,6 @@
+"0","insurance.grid = expand.grid(age = seq(18, 64, 3), smoker = c(""yes"",""no""),bmi=seq(15.96,53.1,2),sex=c(""male"",""female""))"
+"0",""
+"0","insurance.grid$smoker = ifelse(insurance.grid$smoker==""yes"",1,0)"
+"0","insurance.grid$sex = ifelse(insurance.grid$sex==""male"",2,1)"
+"0","insurance.predict = predict(fit_loess, newdata = insurance.grid)"
+"0","insurance.plot.df = data.frame(insurance.grid, fit = as.vector(insurance.predict))"

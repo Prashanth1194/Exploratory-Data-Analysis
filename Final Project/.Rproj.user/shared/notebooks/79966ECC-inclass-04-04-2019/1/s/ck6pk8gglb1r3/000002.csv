@@ -1,0 +1,4 @@
+"0","#install.packages('ggmosaic')"
+"0","library(ggmosaic)"
+"2","package ‘ggmosaic’ was built under R version 3.4.4"
+"0","ggplot(alligator) + geom_mosaic(aes(product(lake), weight = count)) + xlab(""Lake"") + ggtitle(""Boring mosaic plot of alligator counts"")"

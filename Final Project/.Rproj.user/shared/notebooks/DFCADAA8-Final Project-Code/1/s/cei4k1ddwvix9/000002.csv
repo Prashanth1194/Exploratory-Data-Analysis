@@ -1,0 +1,2 @@
+"0","gg1 = ggplot(insurance, aes(x = age,y = log, color = factor(smoker))) + geom_point() +scale_color_manual(name=""Smoking Habit"",values=cb_palette) + labs(x=""Age"",y="""")"
+"0","#gg1 = gg1 + labs(title = ""Age vs Medical Charges"") "
